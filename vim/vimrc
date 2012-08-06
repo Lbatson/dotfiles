@@ -1,4 +1,38 @@
-colorscheme railscasts
-set go-=T
-set guifont=Courier:h13
+"Setup Pathogen
+call pathogen#infect()
+
+"No Vi
+set nocompatible
+
+"utf-8 default encoding
+set enc=utf-8
+
+"Remove Toolbar
+set guioptions-=T
+
+"Set font
+set guifont=Andale\ Mono:h14
+
+
+"Set color scheme with Solarized
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
+
+"Set color scheme with Solarized for Terminal
+let g:solarized_termcolors=256
+
+"Autostart neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+
+"Closetags.vim
+autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/bundle/closetag.vim
+autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+"Setup Supertab
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
 
