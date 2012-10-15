@@ -4,6 +4,9 @@ call pathogen#infect()
 "No Vi
 set nocompatible
 
+"Set jj for Esc
+:inoremap jj <Esc>
+
 "utf-8 default encoding
 set enc=utf-8
 
@@ -13,6 +16,14 @@ set guioptions-=T
 "Set font
 set guifont=Andale\ Mono:h14
 
+"Set line numbers
+set number
+
+"Set tab indent spacing etc.
+set smartindent
+set tabstop=3
+set shiftwidth=3
+set expandtab
 
 "Set color scheme with Solarized
 set background=dark
@@ -35,4 +46,10 @@ autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandt
 "Setup Supertab
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
+"NerdCommenter file type recognition
+filetype plugin on
 
+"Vim-golang
+set rtp+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
