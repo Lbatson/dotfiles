@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/Lance/Dropbox/Development/gitolite-admin/conf'
+let g:netrw_dirhist_2='/Users/Lance/Dropbox/Dev/AWS/gitolite-admin/conf'
+let g:netrw_dirhist_3='/Users/Lance/Dev/Github/game-off-2012/src'

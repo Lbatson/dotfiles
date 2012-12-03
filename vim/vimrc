@@ -21,8 +21,8 @@ set number
 
 "Set tab indent spacing etc.
 set smartindent
-set tabstop=3
-set shiftwidth=3
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 "Set color scheme with Solarized
@@ -45,6 +45,9 @@ autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandt
 
 "Setup Supertab
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+"OmniCppComplete initialization
+call omni#cpp#complete#Init()
 
 "NerdCommenter file type recognition
 filetype plugin on
