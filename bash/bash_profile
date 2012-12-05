@@ -23,3 +23,11 @@ export PATH=$PATH:/usr/local/go/bin
 #GO projects
 export GOPATH=$HOME/Development/other/golang
 export PATH=$PATH:$HOME/Development/other/golang/bin
+
+#alias commands
+alias ls='ls -G'
+alias la='ls -aG'
+alias ll='ls -laG'
+alias ..='cd ..'
+alias c='clear'
+alias vimrc='vim ~/Dropbox/Dev/dotfiles/vim/vimrc'

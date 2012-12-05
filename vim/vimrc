@@ -1,40 +1,48 @@
-"Setup Pathogen
-call pathogen#infect()
-
-"No Vi
 set nocompatible
+filetype off
+filetype plugin on
+filetype plugin indent on
+syntax on
 
-"Set jj for Esc
+"Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+"My bundles
+Bundle 'mattn/gist-vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-scripts/OmniCppComplete'
+Bundle 'ervandew/supertab'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'jelera/vim-javascript-syntax'
+
+"Key bindings
 :inoremap jj <Esc>
 
-"utf-8 default encoding
-set enc=utf-8
+"Setup
+set enc=utf-8 "encoding
+set guioptions-=T "no toolbar macvim
+set guifont=Andale\ Mono:h14 "font
+set number "line numbers
 
-"Remove Toolbar
-set guioptions-=T
-
-"Set font
-set guifont=Andale\ Mono:h14
-
-"Set line numbers
-set number
-
-"Set tab indent spacing etc.
+"Indentation
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
-"Set color scheme with Solarized
+"Colorscheme
 set background=dark
 let g:solarized_termtrans=1
-let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-colorscheme solarized
-
-"Set color scheme with Solarized for Terminal
 let g:solarized_termcolors=256
+colorscheme solarized
 
 "Autostart neocomplcache
 let g:neocomplcache_enable_at_startup = 1
@@ -49,10 +57,5 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 "OmniCppComplete initialization
 call omni#cpp#complete#Init()
 
-"NerdCommenter file type recognition
-filetype plugin on
-
 "Vim-golang
 set rtp+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
