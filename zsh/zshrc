@@ -5,7 +5,7 @@ ZSH=$HOME/Dropbox/Dev/dotfiles/zsh/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="prosemod"
+export ZSH_THEME="mortalscumbagmod"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -69,9 +69,15 @@ alias c='clear'
 alias ls='ls -G'
 alias la='ls -aG'
 alias las='ls -lah'
-alias dotfiles='cd ~/Dropbox/Dev/dotfiles/'
+alias ga.='git add . -A'
 alias vimrc='vim ~/Dropbox/Dev/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/dotfiles/zsh/zshrc'
+alias dotfiles='cd ~/Dropbox/Dev/dotfiles/'
+alias gitolite='cd ~/Dropbox/Dev/AWS/gitolite-admin/'
+
+# Projects
+alias lpmcbot='cd Dev/Github/LPMCBot/'
+alias tradrpost='cd Dev/Github/TradrPost/'
 
 # zsh
 #
