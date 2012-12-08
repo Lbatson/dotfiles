@@ -69,6 +69,7 @@ alias c='clear'
 alias ls='ls -G'
 alias la='ls -aG'
 alias las='ls -lah'
+alias dotfiles='cd ~/Dropbox/Dev/dotfiles/'
 alias vimrc='vim ~/Dropbox/Dev/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/dotfiles/zsh/zshrc'
 
