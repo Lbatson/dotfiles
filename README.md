@@ -1,3 +1,3 @@
 ####Config files
 
-.bash_profile, .vimrc, vim plugins etc.
+.bash_profile, .vimrc, .zshrc, plugins
