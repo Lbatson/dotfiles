@@ -60,8 +60,8 @@ let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 
 "Closetags.vim
-autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/bundle/closetag.vim
-autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+"autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/bundle/closetag.vim
+"autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 "Setup Supertab
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
