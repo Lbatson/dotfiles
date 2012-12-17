@@ -70,12 +70,9 @@ alias la='ls -a'
 alias ga.='git add . -A'
 alias vimrc='vim ~/Dropbox/Dev/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/dotfiles/zsh/zshrc'
-alias dotfiles='cd ~/Dropbox/Dev/dotfiles/'
-alias gitolite='cd ~/Dropbox/Dev/AWS/gitolite-admin/'
-
-# Projects
-alias lpmcbot='cd Dev/Github/LPMCBot/'
-alias tradrpost='cd Dev/Github/TradrPost/'
+alias dot='cd ~/Dropbox/Dev/dotfiles/'
+alias glite='cd ~/Dropbox/Dev/AWS/gitolite-admin/'
+alias gh='cd ~/Dev/Github/'
 
 # zsh
 #
