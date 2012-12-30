@@ -72,7 +72,7 @@ alias vimrc='vim ~/Dropbox/Dev/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/dotfiles/zsh/zshrc'
 alias dot='cd ~/Dropbox/Dev/dotfiles/'
 alias glite='cd ~/Dropbox/Dev/AWS/gitolite-admin/'
-alias gh='cd ~/Dev/Github/'
+alias gh='cd ~/Dropbox/Dev/Github/'
 
 # zsh
 #
