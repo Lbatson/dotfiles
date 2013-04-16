@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/Dropbox/Dev/dotfiles/zsh/oh-my-zsh
+ZSH=$HOME/Dropbox/Dev/Tools/dotfiles/zsh/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -68,11 +68,10 @@ alias ....='cd ../../..'
 alias c='clear'
 alias la='ls -a'
 alias ga.='git add . -A'
-alias vimrc='vim ~/Dropbox/Dev/dotfiles/vim/vimrc'
-alias zshrc='vim ~/Dropbox/Dev/dotfiles/zsh/zshrc'
-alias dot='cd ~/Dropbox/Dev/dotfiles/'
+alias vimrc='vim ~/Dropbox/Dev/Tools/dotfiles/vim/vimrc'
+alias zshrc='vim ~/Dropbox/Dev/Tools/dotfiles/zsh/zshrc'
+alias tools='cd ~/Dropbox/Dev/Tools/'
 alias glite='cd ~/Dropbox/Dev/AWS/gitolite-admin/'
-alias gh='cd ~/Dropbox/Dev/Github/'
 
 # zsh
 #
