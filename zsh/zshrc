@@ -72,6 +72,9 @@ alias vimrc='vim ~/Dropbox/Dev/Tools/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/Tools/dotfiles/zsh/zshrc'
 alias tools='cd ~/Dropbox/Dev/Tools/'
 alias glite='cd ~/Dropbox/Dev/AWS/gitolite-admin/'
+alias pu='cd ~/Dropbox/Dev/Projects/Public/'
+alias pv='cd ~/Dropbox/Dev/Projects/Private/'
+
 
 # zsh
 #
