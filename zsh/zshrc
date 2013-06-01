@@ -32,19 +32,19 @@ source $ZSH/oh-my-zsh.sh
 # PATH
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
+# SVN
+export SVN_EDITOR=vim
+
 # Load RVM function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin
 
-# Python Paths for projects
-PYTHONPATH=$PYTHONPATH:$HOME/Dropbox/Dev/Projects/hamper/scripts/hamper
-
 # Load Java home
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
 
-# npm
+# NPM 
 export PATH=$PATH:/usr/local/share/npm/bin
 
 # Go-lang
@@ -64,6 +64,7 @@ alias vimrc='vim ~/Dropbox/Dev/Tools/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/Tools/dotfiles/zsh/zshrc'
 alias tools='cd ~/Dropbox/Dev/Tools/'
 alias pj='cd ~/Dropbox/Dev/Projects/'
+alias work='cd ~/Dropbox/Work/'
 
 # zsh
 #
