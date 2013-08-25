@@ -62,9 +62,28 @@ alias la='ls -a'
 alias ga.='git add . -A'
 alias vimrc='vim ~/Dropbox/Dev/Tools/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/Tools/dotfiles/zsh/zshrc'
-alias tools='cd ~/Dropbox/Dev/Tools/'
-alias pj='cd ~/Dropbox/Dev/Projects/'
-alias work='cd ~/Dropbox/Work/'
+
+# marks for directory navigation
+export MARKPATH=$HOME/.marks
+
+function jump { 
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark { 
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark { 
+    rm -if "$MARKPATH/$1"
+}
+function marks {
+    \ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+}
+function _completemarks {
+    reply=($(ls $MARKPATH))
+}
+
+compctl -K _completemarks jump
+compctl -K _completemarks unmark
 
 # zsh
 #
