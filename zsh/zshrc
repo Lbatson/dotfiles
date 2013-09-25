@@ -42,7 +42,7 @@ export SVN_EDITOR=vim
 PATH=$PATH:$HOME/.rvm/bin
 
 # Load Java home
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
 
 # NPM 
 export PATH=$PATH:/usr/local/share/npm/bin
@@ -59,9 +59,13 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias c='clear'
 alias la='ls -a'
+alias ll='ls -al'
 alias ga.='git add . -A'
 alias vimrc='vim ~/Dropbox/Dev/Tools/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/Tools/dotfiles/zsh/zshrc'
+alias ec2ls='aws ec2 describe-instances'
+alias sshls='cat ~/.ssh/config'
+alias cowzen='curl https://api.github.com/zen -s | cowsay'
 
 # marks for directory navigation
 export MARKPATH=$HOME/.marks
