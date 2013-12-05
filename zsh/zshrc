@@ -65,7 +65,7 @@ alias vimrc='vim ~/Dropbox/Dev/Tools/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/Tools/dotfiles/zsh/zshrc'
 alias ec2ls='aws ec2 describe-instances'
 alias sshls='cat ~/.ssh/config'
-alias cowzen='curl https://api.github.com/zen -s | cowsay'
+alias updates='brew update && brew upgrade && npm -g update'
 
 # marks for directory navigation
 export MARKPATH=$HOME/.marks
