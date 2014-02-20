@@ -11,7 +11,7 @@ export ZSH_THEME="mortalscumbagmod"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -24,25 +24,16 @@ export ZSH_THEME="mortalscumbagmod"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(brew docker gem git knife node npm osx ruby rvm vagrant web-search wd)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-# PATH
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
-
-# SVN
-export SVN_EDITOR=vim
-
-# Load RVM function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
-# Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.rvm/bin
-
 # Load Java home
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
+
+# PATH
+export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
 # NPM 
 export PATH=$PATH:/usr/local/share/npm/bin
@@ -52,6 +43,12 @@ export PATH=$PATH:/usr/local/go/bin
 
 # Haskell
 export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+# Load RVM function
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
 
 # alias commands
 alias ..='cd ..'
@@ -65,7 +62,10 @@ alias vimrc='vim ~/Dropbox/Dev/Tools/dotfiles/vim/vimrc'
 alias zshrc='vim ~/Dropbox/Dev/Tools/dotfiles/zsh/zshrc'
 alias ec2ls='aws ec2 describe-instances'
 alias sshls='cat ~/.ssh/config'
-alias updates='brew update && brew upgrade && npm -g update'
+alias sshcfg='vim ~/.ssh/config'
+alias updates='brew update && brew upgrade && rvm get stable && gem update --no-rdoc --no-ri && npm -g update'
+alias untar='for a in `ls -1 *.tar.gz`; do tar -zxvf $a; done'
+alias grblflash='/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/bin/avrdude -C/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/etc/avrdude.conf -pm328p -carduino -P/dev/tty.usbmodemfd1341 -D -Uflash:w:/Users/Lance/Downloads/grbl.hex'
 
 # marks for directory navigation
 export MARKPATH=$HOME/.marks
