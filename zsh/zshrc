@@ -1,5 +1,9 @@
+# Check for Dropbox dev tools. If not use home directory
+Tools=$HOME/Dropbox/Dev/Tools
+if ! ls $Tools 2>/dev/null 1>/dev/null; then DIR=$Tools; fi
+
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/Dropbox/Dev/Tools/dotfiles/zsh/oh-my-zsh
+ZSH=$Tools/dotfiles/zsh/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -50,6 +54,9 @@ export PATH="$HOME/Library/Haskell/bin:$PATH"
 # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin
 
+# Set development location for Atom
+export ATOM_REPOS_HOME="Dropbox/Dev/Projects"
+
 # alias commands
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -58,36 +65,26 @@ alias c='clear'
 alias la='ls -a'
 alias ll='ls -al'
 alias ga.='git add . -A'
-alias vimrc='vim ~/Dropbox/Dev/Tools/dotfiles/vim/vimrc'
-alias zshrc='vim ~/Dropbox/Dev/Tools/dotfiles/zsh/zshrc'
-alias ec2ls='aws ec2 describe-instances'
+alias glog="git log --color --graph\
+    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'\
+    --abbrev-commit"
+alias sshcfg='vi ~/.ssh/config'
 alias sshls='cat ~/.ssh/config'
-alias sshcfg='vim ~/.ssh/config'
-alias updates='brew update && brew upgrade && rvm get stable && gem update --no-rdoc --no-ri && npm -g update'
 alias untar='for a in `ls -1 *.tar.gz`; do tar -zxvf $a; done'
-alias grblflash='/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/bin/avrdude -C/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/etc/avrdude.conf -pm328p -carduino -P/dev/tty.usbmodemfd1341 -D -Uflash:w:/Users/Lance/Downloads/grbl.hex'
+alias updates='\
+    brew update &&\
+    brew upgrade &&\
+    rvm get stable && gem update --no-rdoc --no-ri &&\
+    npm -g update &&\
+    apm upgrade -y'
+alias grblflash='\
+    /Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/bin/avrdude\
+    -C/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/etc/avrdude.conf\
+    -pm328p -carduino -P/dev/tty.usbmodemfd1341 -D -Uflash:w:/Users/Lance/Downloads/grbl.hex'
 
-# marks for directory navigation
-export MARKPATH=$HOME/.marks
-
-function jump { 
-    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
-}
-function mark { 
-    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
-}
-function unmark { 
-    rm -if "$MARKPATH/$1"
-}
-function marks {
-    \ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
-}
-function _completemarks {
-    reply=($(ls $MARKPATH))
-}
-
-compctl -K _completemarks jump
-compctl -K _completemarks unmark
+#functions
+vimrc() { vi $Tools/dotfiles/vim/vimrc }
+zshrc() { vi $Tools/dotfiles/zsh/zshrc }
 
 # zsh
 #
