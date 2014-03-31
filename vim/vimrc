@@ -11,13 +11,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "My bundles
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-scripts/OmniCppComplete'
-Bundle 'ervandew/supertab'
 Bundle 'altercation/vim-colors-solarized'
 
 "Key bindings
@@ -59,5 +55,3 @@ let NERDTreeShowHidden=1
 "Setup Supertab
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
-"OmniCppComplete initialization
-call omni#cpp#complete#Init()
