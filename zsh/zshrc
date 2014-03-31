@@ -1,6 +1,6 @@
 # Check for Dropbox dev tools. If not use home directory
 Tools=$HOME/Dropbox/Dev/Tools
-if ! ls $Tools 2>/dev/null 1>/dev/null; then DIR=$HOME; fi
+if ! ls $Tools 2>/dev/null 1>/dev/null; then Tools=$HOME; fi
 
 # Path to your oh-my-zsh configuration.
 ZSH=$Tools/dotfiles/zsh/oh-my-zsh
