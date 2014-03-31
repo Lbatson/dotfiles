@@ -1,6 +1,6 @@
 # Check for Dropbox dev tools. If not use home directory
 Tools=$HOME/Dropbox/Dev/Tools
-if ! ls $Tools 2>/dev/null 1>/dev/null; then DIR=$Tools; fi
+if ! ls $Tools 2>/dev/null 1>/dev/null; then DIR=$HOME; fi
 
 # Path to your oh-my-zsh configuration.
 ZSH=$Tools/dotfiles/zsh/oh-my-zsh
@@ -83,8 +83,8 @@ alias grblflash='\
     -pm328p -carduino -P/dev/tty.usbmodemfd1341 -D -Uflash:w:/Users/Lance/Downloads/grbl.hex'
 
 #functions
-vimrc() { vi $Tools/dotfiles/vim/vimrc }
-zshrc() { vi $Tools/dotfiles/zsh/zshrc }
+vimrc() { command vi $Tools/dotfiles/vim/vimrc }
+zshrc() { command vi $Tools/dotfiles/zsh/zshrc }
 
 # zsh
 #
