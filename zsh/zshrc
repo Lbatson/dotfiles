@@ -74,7 +74,8 @@ alias untar='for a in `ls -1 *.tar.gz`; do tar -zxvf $a; done'
 alias updates='\
     brew update &&\
     brew upgrade &&\
-    rvm get stable && gem update --no-rdoc --no-ri &&\
+    rvm get stable &&\
+    gem update --no-rdoc --no-ri &&\
     npm -g update &&\
     apm upgrade -y'
 alias grblflash='\
@@ -82,7 +83,7 @@ alias grblflash='\
     -C/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/etc/avrdude.conf\
     -pm328p -carduino -P/dev/tty.usbmodemfd1341 -D -Uflash:w:/Users/Lance/Downloads/grbl.hex'
 
-#functions
+# functions
 vimrc() { command vi $Tools/dotfiles/vim/vimrc }
 zshrc() { command vi $Tools/dotfiles/zsh/zshrc }
 
