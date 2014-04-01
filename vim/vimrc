@@ -52,6 +52,3 @@ let NERDTreeMouseMode=2
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 
-"Setup Supertab
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
