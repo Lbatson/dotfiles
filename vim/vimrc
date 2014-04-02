@@ -15,6 +15,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'ervandew/supertab'
 
 "Key bindings
 :inoremap jj <Esc>
@@ -51,4 +52,7 @@ let NERDTreeChDirMode=0
 let NERDTreeMouseMode=2
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
+
+"Supertab
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
