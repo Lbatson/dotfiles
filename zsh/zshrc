@@ -31,8 +31,8 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(brew docker gem git knife node npm osx ruby rvm vagrant web-search wd)
 
 source $ZSH/oh-my-zsh.sh
+source $(brew --prefix nvm)/nvm.sh
 
-# Customize to your needs...
 # Load Java home
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
 
@@ -54,9 +54,6 @@ export PATH="$HOME/Library/Haskell/bin:$PATH"
 # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin
 
-# Set development location for Atom
-export ATOM_REPOS_HOME="Dropbox/Dev/Projects"
-
 # alias commands
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -77,12 +74,7 @@ alias updates='\
     brew upgrade &&\
     rvm get stable &&\
     gem update --no-rdoc --no-ri &&\
-    npm -g update &&\
-    apm upgrade -y'
-alias grblflash='\
-    /Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/bin/avrdude\
-    -C/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/etc/avrdude.conf\
-    -pm328p -carduino -P/dev/tty.usbmodemfd1341 -D -Uflash:w:/Users/Lance/Downloads/grbl.hex'
+    npm -g update'
 
 # functions
 vimrc() { command vi $Tools/dotfiles/vim/vimrc }
