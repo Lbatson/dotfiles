@@ -33,6 +33,12 @@ plugins=(brew docker gem git knife node npm osx ruby rvm vagrant web-search wd)
 source $ZSH/oh-my-zsh.sh
 source $(brew --prefix nvm)/nvm.sh
 
+# Load RVM function
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
+
 # Load Java home
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
 
@@ -48,12 +54,6 @@ export PATH=$PATH:/usr/local/go/bin
 # Haskell
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
-# Load RVM function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
-# Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.rvm/bin
-
 # alias commands
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -66,15 +66,18 @@ alias gru='git remote update --prune'
 alias glog="git log --color --graph\
     --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'\
     --abbrev-commit"
+alias pgstart='postgres -D /usr/local/var/postgres'
 alias sshcfg='vi ~/.ssh/config'
 alias sshls='cat ~/.ssh/config'
 alias untar='for a in `ls -1 *.tar.gz`; do tar -zxvf $a; done'
 alias updates='\
     brew update &&\
     brew upgrade &&\
+    brew cleanup &&\
     rvm get stable &&\
     gem update --no-rdoc --no-ri &&\
-    npm -g update'
+    npm -g update &&\
+    apm upgrade'
 
 # functions
 vimrc() { command vi $Tools/dotfiles/vim/vimrc }
