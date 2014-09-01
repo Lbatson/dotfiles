@@ -1,58 +1,42 @@
 # Check for Dropbox dev tools. If not use home directory
-Tools=$HOME/Dropbox/Dev/Tools
-if ! ls $Tools 2>/dev/null 1>/dev/null; then Tools=$HOME; fi
+TOOLS=$HOME/Dropbox/Dev/Tools
+if ! ls $TOOLS 2>/dev/null 1>/dev/null; then TOOLS=$HOME; fi
 
-# Path to your oh-my-zsh configuration.
-ZSH=$Tools/dotfiles/zsh/oh-my-zsh
+# Path to oh-my-zsh configuration.
+ZSH=$TOOLS/dotfiles/zsh/oh-my-zsh
 
 # Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 export ZSH_THEME="mortalscumbagmod"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want disable red dots displayed while waiting for completion
-# DISABLE_COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
+# Load plugins
 plugins=(brew docker gem git knife node npm osx ruby rvm vagrant web-search wd)
 
+# Run oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-source $(brew --prefix nvm)/nvm.sh
-
-# Load RVM function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
-# Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.rvm/bin
-
-# Load Java home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
 
 # PATH
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
-# NPM 
-export PATH=$PATH:/usr/local/share/npm/bin
-
-# Go-lang
-export PATH=$PATH:/usr/local/go/bin
+# Java
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
 
 # Haskell
 export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+# Go-lang
+GOPATH=$HOME/Dropbox/Dev/Projects/go
+if ! ls $GOPATH 2>/dev/null 1>/dev/null; then GOPATH=$HOME/go; fi
+
+# NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# RVM
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # alias commands
 alias ..='cd ..'
@@ -80,10 +64,10 @@ alias updates='\
     apm upgrade'
 
 # functions
-vimrc() { command vi $Tools/dotfiles/vim/vimrc }
-zshrc() { command vi $Tools/dotfiles/zsh/zshrc }
+vimrc() { command vi $TOOLS/dotfiles/vim/vimrc }
+zshrc() { command vi $TOOLS/dotfiles/zsh/zshrc }
 
-# zsh
+# ZSH Setup
 #
 # Autocomplete
 autoload -Uz compinit && compinit
@@ -99,3 +83,4 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
+
