@@ -38,6 +38,9 @@ source $(brew --prefix nvm)/nvm.sh
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# Homebrew Cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # alias commands
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -58,6 +61,7 @@ alias updates='\
     brew update &&\
     brew upgrade &&\
     brew cleanup &&\
+    brew cask cleanup &&\
     rvm get stable &&\
     gem update --no-rdoc --no-ri &&\
     npm -g update &&\
