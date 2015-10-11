@@ -46,6 +46,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Homebrew Cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# Homebrew Cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # alias commands
 alias ..='cd ..'
 alias ...='cd ../..'
