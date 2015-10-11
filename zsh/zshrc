@@ -1,6 +1,6 @@
-# Check for Dropbox dev tools. If not use home directory
-TOOLS=$HOME/Dropbox/Dev/Tools
-if ! ls $TOOLS 2>/dev/null 1>/dev/null; then TOOLS=$HOME; fi
+# Check for Tools folder. If not use alternate directory
+TOOLS=$HOME/Dropbox/Lance/Tools
+if [[ ! -d "${TOOLS}" ]]; then TOOLS="/Volumes/Macintosh HD 2/Dropbox/Lance/Tools"; fi
 
 # Path to oh-my-zsh configuration.
 ZSH=$TOOLS/dotfiles/zsh/oh-my-zsh
@@ -12,7 +12,7 @@ export ZSH_THEME="mortalscumbagmod"
 DISABLE_AUTO_UPDATE="true"
 
 # Load plugins
-plugins=(brew docker gem git knife node npm osx ruby rvm vagrant web-search wd)
+plugins=(brew docker gem git node npm osx ruby rvm vagrant wd)
 
 # Run oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -21,13 +21,18 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
 # Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
+
+# Android
+export PATH="$HOME/Library/Android/sdk/tools:$PATH"
+export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+export PATH="$HOME/Library/Android/sdk/ndk-bundle:$PATH"
 
 # Haskell
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 # Go-lang
-GOPATH=$HOME/Dropbox/Dev/Projects/go
+GOPATH=$HOME/Projects/go
 if ! ls $GOPATH 2>/dev/null 1>/dev/null; then GOPATH=$HOME/go; fi
 
 # NVM
@@ -36,7 +41,10 @@ source $(brew --prefix nvm)/nvm.sh
 
 # RVM
 export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Homebrew Cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # alias commands
 alias ..='cd ..'
@@ -47,21 +55,27 @@ alias la='ls -a'
 alias ll='ls -al'
 alias ga.='git add . -A'
 alias gru='git remote update --prune'
+alias gig='git update-index --assume-unchanged'
 alias glog="git log --color --graph\
     --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'\
     --abbrev-commit"
+alias gtags="git tag -l -n1"
+alias ghpages="git subtree push --prefix dist origin gh-pages"
+alias npmls="npm ls --depth=0"
 alias pgstart='postgres -D /usr/local/var/postgres'
-alias sshcfg='vi ~/.ssh/config'
-alias sshls='cat ~/.ssh/config'
+alias sshconfig='vi ~/.ssh/config'
 alias untar='for a in `ls -1 *.tar.gz`; do tar -zxvf $a; done'
 alias updates='\
     brew update &&\
-    brew upgrade &&\
+    brew upgrade --all &&\
     brew cleanup &&\
+    brew cask cleanup &&\
+    brew prune &&\
     rvm get stable &&\
     gem update --no-rdoc --no-ri &&\
-    npm -g update &&\
-    apm upgrade'
+    gem cleanup &&\
+    npm cache clean &&\
+    npm update -g'
 
 # functions
 vimrc() { command vi $TOOLS/dotfiles/vim/vimrc }
