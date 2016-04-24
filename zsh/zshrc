@@ -12,13 +12,16 @@ export ZSH_THEME="mortalscumbagmod"
 DISABLE_AUTO_UPDATE="true"
 
 # Load plugins
-plugins=(brew docker gem git node npm osx ruby rvm vagrant wd)
+plugins=(brew docker gem git node npm osx ruby rvm wd)
 
 # Run oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # PATH
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+
+# Python3
+export PATH="/Users/Lance/Library/Python/3.5/bin:$PATH"
 
 # Java
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
@@ -41,33 +44,42 @@ source $(brew --prefix nvm)/nvm.sh
 
 # RVM
 export PATH="$PATH:$HOME/.rvm/bin"
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Homebrew Cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# Homebrew Cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+#AWS CLI completion
+source /usr/local/share/zsh/site-functions/_aws
 
 # alias commands
+# files
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias c='clear'
 alias la='ls -a'
 alias ll='ls -al'
+alias untar='for a in `ls -1 *.tar.gz`; do tar -zxvf $a; done'
+# docker
+alias dockercleanall='dockercleanc || true && dockercleani'
+alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+alias dockerkillall='printf "\n>>> Stopping all containers\n\n" && docker kill $(docker ps -q)'
+# git
 alias ga.='git add . -A'
-alias gru='git remote update --prune'
 alias gig='git update-index --assume-unchanged'
 alias glog="git log --color --graph\
     --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'\
     --abbrev-commit"
+alias gru='git remote update --prune'
 alias gtags="git tag -l -n1"
+# other
 alias ghpages="git subtree push --prefix dist origin gh-pages"
 alias npmls="npm ls --depth=0"
 alias pgstart='postgres -D /usr/local/var/postgres'
+alias serve='http-server -p 9000 --cors'
 alias sshconfig='vi ~/.ssh/config'
-alias untar='for a in `ls -1 *.tar.gz`; do tar -zxvf $a; done'
 alias updates='\
     brew update &&\
     brew upgrade --all &&\
