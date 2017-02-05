@@ -24,7 +24,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PATH="/Users/Lance/Library/Python/3.5/bin:$PATH"
 
 # Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
+export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home
 
 # Android
 export PATH="$HOME/Library/Android/sdk/tools:$PATH"
@@ -42,12 +42,16 @@ if ! ls $GOPATH 2>/dev/null 1>/dev/null; then GOPATH=$HOME/go; fi
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# RVM
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Rbenv
+eval "$(rbenv init -)"
 
-# Homebrew Cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+# fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
+export FASTLANE_OPT_OUT_USAGE=1
+. ~/.fastlane/completions/completion.sh
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
 
 #AWS CLI completion
 source /usr/local/share/zsh/site-functions/_aws
@@ -81,11 +85,10 @@ alias serve='http-server -p 9000 --cors'
 alias sshconfig='vi ~/.ssh/config'
 alias updates='\
     brew update &&\
-    brew upgrade --all &&\
+    brew upgrade &&\
     brew cleanup &&\
     brew cask cleanup &&\
     brew prune &&\
-    rvm get stable &&\
     gem update --no-rdoc --no-ri &&\
     gem cleanup &&\
     npm cache clean &&\
