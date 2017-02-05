@@ -1,15 +1,15 @@
-# Check for Tools folder. If not use alternate directory
-TOOLS=$HOME/Dropbox/Lance/Tools
-if [[ ! -d "${TOOLS}" ]]; then TOOLS="/Volumes/Macintosh HD 2/Dropbox/Lance/Tools"; fi
+# Check for dotfiles folder. If not use alternate directory
+DOTFILES=$HOME/Dropbox/Lance/Tools/dotfiles
+if [[ ! -d "${TOOLS}" ]]; then DOTFILES="~/.dotfiles"; fi
 
 # Path to oh-my-zsh configuration.
-ZSH=$TOOLS/dotfiles/zsh/oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
+
+# Path to zsh customizations
+export ZSH_CUSTOM=$DOTFILES/zsh/custom
 
 # Set name of the theme to load.
 export ZSH_THEME="mortalscumbagmod"
-
-# Comment this out to disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
 
 # Load plugins
 plugins=(brew colored-man-pages docker extract gem git node npm nvm osx pod ruby rvm tmux wd web-search)
@@ -95,8 +95,8 @@ alias updates='\
     npm update -g'
 
 # functions
-vimrc() { command vi $TOOLS/dotfiles/vim/vimrc }
-zshrc() { command vi $TOOLS/dotfiles/zsh/zshrc }
+vimrc() { command vi $DOTFILES/vim/vimrc }
+zshrc() { command vi $DOTFILES/zsh/zshrc }
 
 # ZSH Setup
 #
