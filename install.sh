@@ -17,7 +17,7 @@ cd ~
 
 # ruby
 echo "Install Ruby..."
-rbenv install 2..3.3
+rbenv install 2.3.3
 rbenv global 2.3.3
 
 echo "Install Bundler..."
