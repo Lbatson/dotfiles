@@ -11,7 +11,7 @@ export ZSH_CUSTOM=$DOTFILES/zsh/custom
 export ZSH_THEME="mortalscumbagmod"
 
 # Load plugins
-plugins=(git tmux wd zsh-nvm)
+plugins=(git tmux wd)
 
 # Run oh-my-zsh
 source $ZSH/oh-my-zsh.sh

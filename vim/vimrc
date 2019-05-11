@@ -2,20 +2,22 @@ set nocompatible
 filetype on
 filetype off
 filetype plugin on
-filetype plugin indent on
 syntax on
 
 "Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
 "My bundles
-Bundle 'Shougo/neocomplcache'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
+Plugin 'Shougo/neocomplcache'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ervandew/supertab'
+
+call vundle#end()
+filetype plugin indent on
 
 "Key bindings
 :inoremap jj <Esc>

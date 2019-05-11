@@ -4,9 +4,9 @@ xcode-select --install
 
 # dotfiles
 echo "Symlink files..."
-ln -s ~/.dotfiles/.vim ~/.vim
-ln -s ~/.dotfiles/.vimrc ~/.vimrc
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/vim ~/.vim
+ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 
 # brew stuff
 echo "Install Homebrew..."
@@ -17,10 +17,6 @@ cd ~
 
 # ruby
 echo "Install Ruby..."
-rbenv install 2.3.3
-rbenv global 2.3.3
-
-echo "Install Bundler..."
-gem install bundler
+rbenv install $(rbenv install -l | grep -v - | tail -1)
 
 echo "Done!" 
