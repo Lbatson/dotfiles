@@ -1,0 +1,6 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias c='clear'
+alias la='ls -a'
+alias ll='ls -al'

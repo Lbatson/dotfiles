@@ -11,7 +11,7 @@ export ZSH_CUSTOM=$DOTFILES/zsh/custom
 export ZSH_THEME="mortalscumbagmod"
 
 # Load plugins
-plugins=(git tmux wd)
+plugins=(git tmux wd zsh-nvm)
 
 # Run oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -19,37 +19,8 @@ source $ZSH/oh-my-zsh.sh
 # PATH
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
-# homebrew
-export HOMEBREW_NO_ANALYTICS=1
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# fastlane
-export PATH="$HOME/.fastlane/bin:$PATH"
-export FASTLANE_OPT_OUT_USAGE=1
-
-# files
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias c='clear'
-alias la='ls -a'
-alias ll='ls -al'
-
-# git
-alias ga.='git add . -A'
-alias gig='git update-index --assume-unchanged'
-alias glog="git log --color --graph\
-    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'\
-    --abbrev-commit"
-alias gru='git remote update --prune'
-alias gtags="git tag -l -n1"
-
 # other
 alias ghpages="git subtree push --prefix dist origin gh-pages"
-alias npmls="npm ls --depth=0"
 alias pgstart='postgres -D /usr/local/var/postgres'
 alias serve='http-server -p 9000 --cors'
 alias sshconfig='vi ~/.ssh/config'
@@ -60,24 +31,5 @@ alias updates='upgrade_oh_my_zsh && update_homebrew && update_gems && update_npm
 alias venv='source venv/bin/activate'
 
 # functions
-json()  { cat $1 | python -mjson.tool | pygmentize -l json -f 256 -P style=monokai }
 vimrc() { command vi $DOTFILES/vim/vimrc }
 zshrc() { command vi $DOTFILES/zsh/zshrc }
-
-# ZSH Setup
-#
-# Autocomplete
-autoload -Uz compinit && compinit -u
-
-# Vim mode zsh
-bindkey -v
-bindkey -M viins 'jj' vi-cmd-mode
-
-function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    RPS2=$RPS1
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-

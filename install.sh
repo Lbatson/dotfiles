@@ -15,8 +15,4 @@ cd ~/.dotfiles/Homebrew
 brew bundle
 cd ~
 
-# ruby
-echo "Install Ruby..."
-rbenv install $(rbenv install -l | grep -v - | tail -1)
-
 echo "Done!" 
