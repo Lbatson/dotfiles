@@ -11,7 +11,7 @@ ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 # brew stuff
 echo "Install Homebrew..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-cd ~/.dotfiles/Homebrew
+cd ~/.dotfiles/homebrew
 brew bundle
 cd ~
 
