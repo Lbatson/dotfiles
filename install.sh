@@ -1,18 +1,38 @@
 #!/bin/bash
-echo "Install Xcode CLI tools..."
-xcode-select --install
+install_all() {
+  install_base
+  install_homebrew
+  install_xcode
+}
 
-# dotfiles
-echo "Symlink files..."
-ln -s ~/.dotfiles/vim ~/.vim
-ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
+install_base() {
+  # dotfiles
+  echo "Symlink files..."
+  ln -s ~/.dotfiles/vim ~/.vim
+  ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+  ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 
-# brew stuff
-echo "Install Homebrew..."
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-cd ~/.dotfiles/homebrew
-brew bundle
-cd ~
+  # oh-my-zsh
+  echo "Install Oh My Zsh..."
+  cd ~
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  echo "Done!" 
+}
 
-echo "Done!" 
+install_homebrew() {
+  # brew stuff
+  echo "Install Homebrew..."
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  cd ~/.dotfiles/homebrew
+  brew bundle
+  cd ~
+  echo "Done!" 
+}
+
+install_xcode() {
+  # Xcode CLI
+  echo "Install Xcode CLI tools..."
+  xcode-select --install
+  echo "Done!" 
+}
+
