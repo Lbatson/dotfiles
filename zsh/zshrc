@@ -27,9 +27,13 @@ alias sshconfig='vi ~/.ssh/config'
 alias update_homebrew='brew update && brew upgrade && brew cleanup'
 alias update_gems='gem update --no-document && gem cleanup'
 alias update_npm='npm update -g'
-alias updates='upgrade_oh_my_zsh && update_homebrew && update_gems && update_npm'
+alias updates='omz update && update_homebrew && update_gems && update_npm'
 alias venv='source venv/bin/activate'
+
+# settings
+DISABLE_AUTO_TITLE="true"
 
 # functions
 vimrc() { command vi $DOTFILES/vim/vimrc }
 zshrc() { command vi $DOTFILES/zsh/zshrc }
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
