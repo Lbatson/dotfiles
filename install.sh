@@ -6,23 +6,25 @@ install_all() {
 }
 
 install_base() {
-  # dotfiles
-  echo "Symlink files..."
-  ln -s ~/.dotfiles/vim ~/.vim
-  ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-  ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
-
   # oh-my-zsh
   echo "Install Oh My Zsh..."
   cd ~
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "Done!" 
+
+  # dotfiles
+  echo "Symlink files..."
+  rm ~/.zshrc
+  ln -s ~/.dotfiles/vim ~/.vim
+  ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+  ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
+  echo "Done!"
 }
 
 install_homebrew() {
   # brew stuff
   echo "Install Homebrew..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo "Done!" 
 }
 

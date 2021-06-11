@@ -1,5 +1,7 @@
 ### Setup
 
-* Clone recursive for zsh/vim plugin submodules
-* Run `./install.sh` after to symlink files and install homebrew packages
+* `git clone --recursive` for zsh/vim plugin submodules
+* Install script
+  * Run `source install.sh`
+  * Run `install_all` or specific install functions
 
