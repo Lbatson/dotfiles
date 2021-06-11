@@ -32,6 +32,8 @@ alias venv='source venv/bin/activate'
 
 # settings
 DISABLE_AUTO_TITLE="true"
+DISABLE_UPDATE_PROMPT="true"
+UPDATE_ZSH_DAYS=7
 
 # functions
 vimrc() { command vi $DOTFILES/vim/vimrc }
