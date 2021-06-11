@@ -15,17 +15,14 @@ install_base() {
   # oh-my-zsh
   echo "Install Oh My Zsh..."
   cd ~
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "Done!" 
 }
 
 install_homebrew() {
   # brew stuff
   echo "Install Homebrew..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  cd ~/.dotfiles/homebrew
-  brew bundle
-  cd ~
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo "Done!" 
 }
 
