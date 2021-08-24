@@ -1,0 +1,8 @@
+# This is Git's per-user configuration file.
+[user]
+  name = Lance Batson
+  email = lancebatsondev@gmail.com
+[pull]
+  rebase = false
+[includeIf "gitdir:~/source/webmd/"]
+  path = ~/.dotfiles/git/.work.gitconfig
