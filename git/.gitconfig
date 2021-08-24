@@ -2,7 +2,14 @@
 [user]
   name = Lance Batson
   email = lancebatsondev@gmail.com
-[pull]
+[credential]
+  helper = osxkeychain
+[core]
+  editor = vim
+  autocrlf = input
+[push]
+  default = current
   rebase = false
 [includeIf "gitdir:~/source/webmd/"]
   path = ~/.dotfiles/git/.work.gitconfig
+
