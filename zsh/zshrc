@@ -26,8 +26,8 @@ alias serve='http-server -p 9000 --cors'
 alias sshconfig='vi ~/.ssh/config'
 alias update_homebrew='brew update && brew upgrade && brew cleanup'
 alias update_gems='gem update --no-document && gem cleanup'
-alias update_npm='npm update -g'
-alias updates='omz update && update_homebrew && update_gems && update_npm'
+alias update_npm='npm install -g npm@latest && npm -g update'
+alias updates='omz update && update_homebrew && update_gems && update_nvm && update_npm'
 alias venv='source venv/bin/activate'
 
 # settings
@@ -39,3 +39,6 @@ UPDATE_ZSH_DAYS=7
 vimrc() { command vi $DOTFILES/vim/vimrc }
 zshrc() { command vi $DOTFILES/zsh/zshrc }
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
