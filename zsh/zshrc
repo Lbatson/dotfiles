@@ -28,7 +28,7 @@ alias update_homebrew='brew update && brew upgrade && brew cleanup'
 alias update_gems='gem update --no-document && gem cleanup'
 alias update_npm='npm install -g npm@latest && npm -g update'
 alias update_rvm='rvm cleanup all && rvm get stable'
-alias updates='omz update && update_homebrew && update_rvm && update_gems && update_nvm && update_npm'
+alias updates='omz update && update_homebrew && update_rvm && update_gems && update_npm'
 alias venv='source venv/bin/activate'
 
 # settings

@@ -3,6 +3,3 @@
 	url = https://github.com/VundleVim/Vundle.vim.git
     ignore = dirty
 	branch = master
-[submodule "zsh/custom/plugins/zsh-nvm"]
-	path = zsh/custom/plugins/zsh-nvm
-	url = https://github.com/lukechilds/zsh-nvm
