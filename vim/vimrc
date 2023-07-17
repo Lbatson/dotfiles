@@ -28,6 +28,10 @@ set guioptions-=T "no toolbar macvim
 set guifont=Andale\ Mono:h14 "font
 set number "line numbers
 
+"Search
+set hlsearch
+set incsearch
+
 "Indentation
 set smartindent
 set tabstop=2

@@ -22,7 +22,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 # other
 alias ghpages="git subtree push --prefix dist origin gh-pages"
 alias pgstart='postgres -D /usr/local/var/postgres'
-alias serve='http-server -p 9000 --cors'
+# alias serve='http-server -p 9000 --cors'
 alias sshconfig='vi ~/.ssh/config'
 alias update_homebrew='brew update && brew upgrade && brew cleanup'
 alias update_gems='gem update --no-document && gem cleanup'
@@ -33,8 +33,7 @@ alias venv='source venv/bin/activate'
 
 # settings
 DISABLE_AUTO_TITLE="true"
-DISABLE_UPDATE_PROMPT="true"
-UPDATE_ZSH_DAYS=7
+zstyle ':omz:update' mode disabled
 
 # functions
 vimrc() { command vi $DOTFILES/vim/vimrc }
@@ -46,3 +45,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+export JAVA_HOME="/opt/homebrew/opt/openjdk/bin/java"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+export CODEARTIFACT_AUTH_TOKEN=''
